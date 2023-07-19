@@ -40,9 +40,9 @@
             this.txtEmployeePhone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEmployeeSal = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEmployee = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -146,13 +146,13 @@
             this.txtEmployeeSal.Size = new System.Drawing.Size(100, 20);
             this.txtEmployeeSal.TabIndex = 10;
             // 
-            // dataGridView1
+            // dgvEmployee
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 221);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(401, 150);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployee.Location = new System.Drawing.Point(46, 221);
+            this.dgvEmployee.Name = "dgvEmployee";
+            this.dgvEmployee.Size = new System.Drawing.Size(401, 150);
+            this.dgvEmployee.TabIndex = 12;
             // 
             // btnClear
             // 
@@ -170,7 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 567);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvEmployee);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEmployeeSal);
             this.Controls.Add(this.label5);
@@ -185,7 +185,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +206,7 @@
         private System.Windows.Forms.TextBox txtEmployeePhone;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEmployeeSal;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEmployee;
         private System.Windows.Forms.Button btnClear;
     }
 }

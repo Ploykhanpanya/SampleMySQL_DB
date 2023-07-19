@@ -21,6 +21,16 @@ namespace SampleMySQL_DB
             InitializeComponent();
         }
 
+        private void FetchView()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT * FROM employee_tbl");
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command.CommandText, _connection);
+            DataSet ds = new DataSet();
+
+            adapter.Fill(ds, "Employee_tbl");
+            dgvEmployee.DataSource = ds;
+            dgvEmployee.DataMember = "Employee_tbl";
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -34,19 +44,23 @@ namespace SampleMySQL_DB
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this._connection = new MySqlConnection("server=localhost; uid=root; database=samplemysql;"
-                ); //"server=localhost;uid=root;pwd=12345;database=test"
+            this._connection = new MySqlCommand(
+                $"INSERT INTO employee_tbl(eid, ename, salary, address, telephone) VALUES(" +
+                $",{this.txtEmployeeID}" +
+                $", '{this.txtEmployeeName.Text}', {float.Parse(this.txtEmployeeSal.Text)}" +
+                $", '{this.txtEmployeeAddr.Text}', {float.Parse(this.txtEmployeePhone.Text)};"
+                , _connection);
 
-            try
-            {
-                this._connection.Open();
-                this._connection.Clone();
-                MessageBox.Show("Connection Successfull");
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Connection unsuccessfull");
-            }
+            this._connection.Open();
+            this._connection.ExecuteNonQuery();
+            this._connection.Close();
+            this.btnClear_Click(sender, e);
+            this.FetchView();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
     
